@@ -15,27 +15,32 @@ public class UserDAOImpl implements UserDAO {
 	PreparedStatement stmt = null;
 	List<User> users = new ArrayList<>();
 
-	public void createNewUser(User user) {
+	public boolean createNewUser(User user) {
+		boolean success = false;
 		try {
 			connection = DAOxUtil.getConnection();
 
-			String sql = "INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO users VALUES (null, ?, ?, ?, ?, ?)";
 			stmt = connection.prepareStatement(sql);
-
-			stmt.setInt(1, user.getU_id());
-			stmt.setNString(2, user.getUname());
-			stmt.setString(3, user.getFname());
-			stmt.setString(4, user.getLname());
-			stmt.setString(5, user.getPw());
-			stmt.setString(6, user.getRole());
+			
+			//stmt.setNull(1, user.getU_id());
+			stmt.setString(1, user.getFname());
+			stmt.setString(2, user.getLname());
+			stmt.setNString(3, user.getUname());
+			stmt.setString(4, user.getPw());
+			stmt.setString(5, user.getRole());
 
 			if (stmt.executeUpdate() > 0) {
 				System.out.println("YAY");
+				success = true;
+			}
+			else {
+				success = false;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		return success;
 	}
 
 	public List<User> selectAllUsers() {
@@ -75,7 +80,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			connection = DAOxUtil.getConnection();
-			String sql = "SELECT * FROM user WHERE Uname = ? AND pw = ?";
+			String sql = "SELECT * FROM users WHERE Uname = ? AND pw = ?";
 
 			stmt = connection.prepareStatement(sql);
 

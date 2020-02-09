@@ -6,7 +6,7 @@ import com.aj.model.User;
 
 public interface UserDAO {
 	
-	public void createNewUser(User user);
+	public boolean createNewUser(User user);
 	
 	public List<User> selectAllUsers();
 	public User selectUserByUsername(String user, String pass);

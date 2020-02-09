@@ -14,4 +14,14 @@
     <servlet-name>MasterServlet</servlet-name>
     <url-pattern>*.change</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HomeServlet</display-name>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>com.aj.servlet.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>*.home</url-pattern>
+  </servlet-mapping>
 </web-app>

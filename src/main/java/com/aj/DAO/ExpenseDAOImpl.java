@@ -16,26 +16,29 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 	PreparedStatement stmt = null;
 	List<Expense> expenses = new ArrayList<>();
 
-	public void createNewExpense(Expense ex, User us) {
+	public void createNewExpense(Expense ex, int uID) {
 		try {
 			connection = DAOxUtil.getConnection();
-			
+			System.out.println("In create expense DAO");
 			//String sql = "INSERT INTO expenses VALUES (null, null, 1, null, null, 100.87, 'pending', 'desc')";
 			
-			String sql = "INSERT INTO expenses VALUES (null, 143, ?, null, null, ?, ?, ?)";
+			String sql = "INSERT INTO expenses VALUES (null, ?, ?, null, null, ?, ?, ?)";
 			stmt = connection.prepareStatement(sql);
 			System.out.println(ex);
 			//stmt.setInt(1, ex.getExp_id());
-			//stmt.setInt(1, us.getU_id());
-			stmt.setInt(1, ex.getType());
+			stmt.setInt(1, uID);
+			stmt.setInt(2, ex.getType());
 			//stmt.setDate(3, ex.getSubmitted());
 			//stmt.setDate(4, ex.getResolved());
-			stmt.setFloat(2, ex.getAmount());
-			stmt.setString(3, ex.getState());
-			stmt.setString(4, ex.getDesc());
+			stmt.setFloat(3, ex.getAmount());
+			stmt.setString(4, ex.getState());
+			stmt.setString(5, ex.getDesc());
 			
 			if(stmt.executeUpdate() > 0) {
 				System.out.println("Successfully submitted new expense.");
+			}
+			else {
+				System.out.println("Did not insert record.");
 			}
 			
 		}
@@ -82,7 +85,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 		try {
 			connection = DAOxUtil.getConnection();
 			
-			String sql = "SELECT * WHERE state = ?";
+			String sql = "SELECT * FROM expenses WHERE state = ?";
 			
 			stmt = connection.prepareStatement(sql);
 			

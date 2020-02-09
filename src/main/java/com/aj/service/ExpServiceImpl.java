@@ -6,6 +6,7 @@ import java.util.List;
 import com.aj.DAO.ExpenseDAO;
 import com.aj.DAO.ExpenseDAOImpl;
 import com.aj.model.Expense;
+import com.aj.model.User;
 
 public class ExpServiceImpl implements ExpenseService {
 	public static ExpenseDAO expDao = new ExpenseDAOImpl();
@@ -30,9 +31,8 @@ public class ExpServiceImpl implements ExpenseService {
 	}
 
 	@Override
-	public void createExpense(Expense ex) {
-		// TODO Auto-generated method stub
-
+	public void createExpense(Expense ex, int uId) {
+		expDao.createNewExpense(ex, uId);
 	}
 
 }

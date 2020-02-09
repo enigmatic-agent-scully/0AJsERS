@@ -7,7 +7,7 @@ import com.aj.model.User;
 
 public interface ExpenseDAO {
 	
-	public void createNewExpense(Expense ex, User us);
+	public void createNewExpense(Expense ex, int us);
 	
 	public List<Expense> selectAllExpenses();
 	public List<Expense> selectPendingExpenses();
