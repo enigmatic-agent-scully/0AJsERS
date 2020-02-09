@@ -9,9 +9,7 @@ public interface UserDAO {
 	public void createNewUser(User user);
 	
 	public List<User> selectAllUsers();
-	public User selectUserByUsername(String user);
-	
+	public User selectUserByUsername(String user, String pass);
 	public String updateUser(User user);
-	
 	public String deleteUser();
 }

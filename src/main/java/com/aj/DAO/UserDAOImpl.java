@@ -71,33 +71,30 @@ public class UserDAOImpl implements UserDAO {
 		return users;
 	}
 
-	public User selectUserByUsername(String user) {
-		User userReturned = new User();
+	public User selectUserByUsername(String user, String pass) {
 
 		try {
 			connection = DAOxUtil.getConnection();
-			String sql = "SELECT * FROM user WHERE Uname = ?";
+			String sql = "SELECT * FROM user WHERE Uname = ? AND pw = ?";
 
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, user);
+			stmt.setString(2, pass);
 
 			ResultSet rs = stmt.executeQuery();
 
-			while (rs.next()) {
-				userReturned.setU_id(rs.getInt(1));
-				userReturned.setUname(rs.getString(2));
-				userReturned.setFname(rs.getString(3));
-				userReturned.setLname(rs.getString(4));
-				userReturned.setPw(rs.getString(5));
-				userReturned.setRole(rs.getString(6));
+			if (rs.next()) {
+				return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6));
 
+			} else {
+				System.out.println("Not found.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		return userReturned;
+		return null;
 	}
 
 	public String updateUser(User user) {
