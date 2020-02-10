@@ -10,7 +10,7 @@ import com.aj.service.ExpServiceImpl;
 import com.aj.service.ExpenseService;
 
 public class EmployeeController {
-	String destination = null;
+	static String destination = null;
 	public static String submitExpense(HttpServletRequest req) {
 		System.out.println("In employee controller");
 		ExpenseService expSvc = new ExpServiceImpl();
@@ -38,16 +38,18 @@ public class EmployeeController {
 		System.out.println(newExp);
 		try {
 			System.out.println(newExp.getType());
-			expSvc.createExpense(newExp);	
-		}
-		catch (SQLIntegrityConstraintViolationException s) {
-			
+			if (expSvc.createExpense(newExp)) {
+				destination = "/html/submitSuccess.html";
+			}
+			else {
+				destination = "/html/EmployeeHome.html";
+			}
 		}
 		catch (NullPointerException n) {
 			System.out.println("Null pointer exception again.");
 		}
 		
 		
-		return "/html/EmployeeHome.html";
+		return destination;
 	}
 }

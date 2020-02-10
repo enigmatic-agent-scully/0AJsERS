@@ -60,7 +60,9 @@ public class HomeServlet extends HttpServlet {
 					+ "href=\"../css/style.css\">\r\n" + "\r\n" 
 					+ "</head>";
 			String openBody = "<body>\r\n" 
-					+ "<div class=\"container\">\r\n" 
+					+ "<div class=\"container\">\r\n" + "<div class=\"title\">\r\n" + 
+							"    <h3>Welcome Admin!</h3>\r\n" + "<h5>You are viewing all expenses in the system.</h5>" +
+							"    </div>" 
 					+ "<div class=\"form-group\">";
 			String endWrapper = "</table>\r\n" + "</div>\r\n" 
 					+ "</div>\r\n" + "<script src=\"https://code.jquery.com/"
