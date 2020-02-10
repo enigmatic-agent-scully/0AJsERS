@@ -1,0 +1,64 @@
+body {
+  background: url('./../imgs/greg-rakozy-oMpAz-DN-9I-unsplashCropped.jpg'),
+    no-repeat, center;
+  background-size: 180vh;
+}
+
+@font-face {
+  font-family: 'strongarmbold_italic';
+  src: url('./../fonts/strongarm_bold_italic-webfont.woff2') format('woff2'),
+    url('./../fonts/strongarm_bold_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'strongarmbold';
+  src: url('./../fonts/strongarm_bold-webfont.woff2') format('woff2'),
+    url('./../fonts/strongarm_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'advent_prolight';
+  src: url('./../fonts/adventpro-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'advent_prosemibold';
+  src: url('./../fonts/adventpro-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+#LoginWelcome {
+  padding: 20px;
+  text-align: center;
+  font-family: 'strongarmbold_italic';
+  text-shadow: #5e5c5c 1px 0 1px;
+  color: black;
+}
+.navbar a,
+.navbar-expand-lg,
+.navbar-dark a {
+  background-color: black;
+  color: white;
+}
+
+form {
+  margin-left: 300px;
+  font-family: 'advent_prolight';
+  font-size: 1.25rem;
+}
+form p {
+  font-family: 'advent_prosemibold';
+  font-size: 1.75rem;
+  width: 200px;
+  text-align: center;
+}

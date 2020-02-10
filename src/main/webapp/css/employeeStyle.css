@@ -1,0 +1,28 @@
+body {
+  background: url('./../imgs/greg-rakozy-oMpAz-DN-9I-unsplashCropped.jpg'),
+    no-repeat, center;
+  background-size: 180vh;
+}
+
+@font-face {
+  font-family: 'strongarmbold_italic';
+  src: url('./../fonts/strongarm_bold_italic-webfont.woff2') format('woff2'),
+    url('./../fonts/strongarm_bold_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  font-family: 'strongarmbold_italic';
+  padding-top: 50px;
+  color: black;
+  font-size: 3rem;
+  text-shadow: white 1px 0 1px;
+}
+
+#SubmitButton {
+  font-family: 'strongarmbold_italic';
+  color: white;
+  font-size: 3rem;
+  text-shadow: black 2px 0 1px;
+}
