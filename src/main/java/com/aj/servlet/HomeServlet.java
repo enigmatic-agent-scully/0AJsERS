@@ -51,9 +51,9 @@ public class HomeServlet extends HttpServlet {
 					+ "href=\"https://stackpath.bootstrapcdn.com" + "/bootstrap/4.3.1/css/bootstrap.min.css\"\r\n"
 					+ "integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/" + "1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\"\r\n"
 					+ "crossorigin=\"anonymous\">\r\n" + "<link rel=stylesheet type=\"text/css\" "
-					+ "href=\"../css/style.css\">\r\n" + "\r\n" + "</head>";
+					+ "href=\"../0AJsERS/css/adminStyle.css\">\r\n" + "\r\n" + "</head>";
 			String openBody = "<body>\r\n" + "<div class=\"container\">\r\n" + "<div class=\"title\">\r\n"
-					+ "<h3>Welcome Admin!</h3>\r\n" + "<h5>You are viewing all expenses in the system.</h5>" + "</div>"
+					+ "<h2>Welcome Admin!</h2>\r\n" + "<h5>You are viewing all expenses in the system.</h5>" + "</div>"
 					+ "<div class=\"form-group\">";
 			String endWrapper = "</table>\r\n" + "</div>\r\n" + "</div>\r\n" + "<script src=\"https://code.jquery.com/"
 					+ "jquery-3.3.1.slim.min.js\"\r\n" + "integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRV"
@@ -92,8 +92,8 @@ public class HomeServlet extends HttpServlet {
 				for (User u : usrs) {
 					if (e.getFk_e_id().equals(u.getU_id())) {
 						User current = u;
-						content += "<tr><td>" + e.getFk_e_id() + "</td><td>" + current.getFname() + "</td><td>"
-								+ current.getLname() + "</td><td>" + typeStr + "</td><td>" + e.getAmount() + "</td><td>"
+						content += "<tr><td>" + e.getFk_e_id() + "</td><td>" + current.getUname() + "</td><td>"
+								+ current.getFname() + "</td><td>" + typeStr + "</td><td>" + e.getAmount() + "</td><td>"
 								+ e.getSubmitted() + "</td><td>" + e.getResolved() + "</td><td>" + e.getState()
 								+ "</td><td>" + e.getDesc() + "</td><td>" + e.getExp_id() + "</td></tr>";
 					}

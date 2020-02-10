@@ -12,17 +12,26 @@ body {
   font-style: normal;
 }
 
-h2 {
+@font-face {
+  font-family: 'advent_prosemibold';
+  src: url('./../fonts/adventpro-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
   font-family: 'strongarmbold_italic';
   padding-top: 50px;
   color: white;
-  font-size: 3rem;
+  font-size: 4rem;
   text-shadow: black 1px 0 1px;
 }
-
-#SubmitButton {
-  font-family: 'strongarmbold_italic';
+h3 {
+  font-family: 'advent_prosemibold';
+  font-size: 1.5rem;
   color: white;
-  font-size: 3rem;
-  text-shadow: black 2px 0 1px;
+}
+
+a {
+  font-family: 'advent_prosemibold';
 }

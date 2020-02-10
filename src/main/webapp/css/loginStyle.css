@@ -33,21 +33,20 @@ body {
   font-style: normal;
 }
 
+h1#firstH1 {
+  font-size: 3rem;
+  padding-top: 75px;
+}
+
 h1 {
   font-size: 3rem;
 }
 
 #LoginWelcome {
-  padding: 20px;
+  padding: 50px;
   text-align: center;
   font-family: 'strongarmbold_italic';
-  text-shadow: #5e5c5c 1px 0 1px;
-  color: black;
-}
-.navbar a,
-.navbar-expand-lg,
-.navbar-dark a {
-  background-color: black;
+  text-shadow: black 2px 0 2px;
   color: white;
 }
 
@@ -58,7 +57,7 @@ form {
 }
 form p {
   font-family: 'advent_prosemibold';
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   width: 200px;
   text-align: center;
 }
