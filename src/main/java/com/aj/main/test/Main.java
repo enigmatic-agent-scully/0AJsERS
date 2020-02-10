@@ -15,10 +15,11 @@ public class Main {
 	public static void main(String[] args) {
 		UserService usrSvc = new UserServiceImpl();
 		ExpenseService expSvc = new ExpServiceImpl();
-		usrSvc.createUser(CreateNewRandom.createRandomUser());
+		//usrSvc.createUser(CreateNewRandom.createRandomUser());
 		List<User> users = usrSvc.getAllUsers();
 		for (User u : users) {
-			Expense newExp = new Expense(null, u.getU_id(), 1, null, null, "pending", (float) 102.07, "description");
+			System.out.println(u.getU_id());
+			Expense newExp = new Expense(null, u.getU_id(), "1", null, null, "pending", "102.07", "aadyufous");
 			expSvc.createExpense(newExp);
 		}
 		System.out.println(expSvc.getAllExpenses());

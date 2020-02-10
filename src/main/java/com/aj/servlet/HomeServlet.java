@@ -26,17 +26,17 @@ public class HomeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// check session role attribute to direct page appropriately
+		doPost(req, res);
+	}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		if (req.getSession().getAttribute("role").equals("admin")) {
 			System.out.println("hit home serlvet, admin case");
 			writeAdminHTML(res);
 		} else {
 			req.getRequestDispatcher(RequestHelper.process(req)).forward(req, res);
 		}
-	}
-
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(req, res);
 	}
 
 //Get expenses and users
@@ -92,19 +92,19 @@ public class HomeServlet extends HttpServlet {
 
 			for (Expense e : exps) {
 				String typeStr = null;
-				int type = e.getType();
+				String type = e.getType();
 
 				switch (type) {
-				case 1:
+				case "1":
 					typeStr = "Lodging";
 					break;
-				case 2:
+				case "2":
 					typeStr = "Travel";
 					break;
-				case 3:
+				case "3":
 					typeStr = "Food";
 					break;
-				case 4:
+				case "4":
 					typeStr = "Other";
 				}
 

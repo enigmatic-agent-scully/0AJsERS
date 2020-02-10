@@ -28,10 +28,10 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 			System.out.println(ex);
 			//stmt.setInt(1, ex.getExp_id());
 			stmt.setInt(1, ex.getFk_e_id());
-			stmt.setInt(2, ex.getType());
+			stmt.setString(2, ex.getType());
 			//stmt.setDate(3, ex.getSubmitted());
 			//stmt.setDate(4, ex.getResolved());
-			stmt.setFloat(3, ex.getAmount());
+			stmt.setString(3, ex.getAmount());
 			stmt.setString(4, ex.getState());
 			stmt.setString(5, ex.getDesc());
 			
@@ -68,10 +68,10 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 				
 				exp.setExp_id(rs.getInt(1));
 				exp.setFk_e_id(rs.getInt(2));
-				exp.setType(rs.getInt(3));
+				exp.setType(rs.getString(3));
 				exp.setSubmitted(rs.getDate(4));
 				exp.setResolved(rs.getDate(5));
-				exp.setAmount(rs.getFloat(6));
+				exp.setAmount(rs.getString(6));
 				exp.setState(rs.getString(7));
 				exp.setDesc(rs.getString(8));
 				
@@ -101,10 +101,10 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 				
 				exp.setExp_id(rs.getInt(1));
 				exp.setFk_e_id(rs.getInt(2));
-				exp.setType(rs.getInt(3));
+				exp.setType(rs.getString(3));
 				exp.setSubmitted(rs.getDate(4));
 				exp.setResolved(rs.getDate(5));
-				exp.setAmount(rs.getFloat(6));
+				exp.setAmount(rs.getString(6));
 				exp.setState(rs.getString(7));
 				exp.setDesc(rs.getString(8));
 				

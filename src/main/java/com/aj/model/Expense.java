@@ -4,20 +4,20 @@ import java.sql.Date;
 
 public class Expense {
 	private Integer exp_id, fk_u_id;
-	private int type;
+	private String type;
 	private Date submitted, resolved;
 	private String state = "pending";
-	private float amount;
+	private String amount;
 	private String desc;
 
 	public Expense() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Expense(Integer exp_id, Integer fk_u_id, int type, Date submitted, Date resolved, String state, float amount, String desc) {
+	public Expense(Integer exp_id, Integer fk_u_id, String type, Date submitted, Date resolved, String state, String amount, String desc) {
 		super();
 		this.exp_id = null;
-		this.fk_u_id = null;
+		this.fk_u_id = fk_u_id;
 		this.type = type;
 		this.submitted = submitted;
 		this.resolved = resolved;
@@ -42,12 +42,12 @@ public class Expense {
 		this.fk_u_id = fk_u_id;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public void setType(String type2) {
+		this.type = type2;
 	}
 
 	public String getState() {
@@ -58,11 +58,11 @@ public class Expense {
 		this.state = state;
 	}
 
-	public float getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
