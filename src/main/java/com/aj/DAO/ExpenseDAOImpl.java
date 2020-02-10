@@ -16,7 +16,8 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 	PreparedStatement stmt = null;
 	List<Expense> expenses = new ArrayList<>();
 
-	public void createNewExpense(Expense ex, int uID) {
+	public boolean createNewExpense(Expense ex) {
+		boolean success = false;
 		try {
 			connection = DAOxUtil.getConnection();
 			System.out.println("In create expense DAO");
@@ -26,7 +27,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 			stmt = connection.prepareStatement(sql);
 			System.out.println(ex);
 			//stmt.setInt(1, ex.getExp_id());
-			stmt.setInt(1, uID);
+			stmt.setInt(1, ex.getFk_e_id());
 			stmt.setInt(2, ex.getType());
 			//stmt.setDate(3, ex.getSubmitted());
 			//stmt.setDate(4, ex.getResolved());
@@ -36,9 +37,11 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 			
 			if(stmt.executeUpdate() > 0) {
 				System.out.println("Successfully submitted new expense.");
+				success = true;
 			}
 			else {
 				System.out.println("Did not insert record.");
+				success = false;
 			}
 			
 		}
@@ -46,7 +49,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
 			e.printStackTrace();
 			System.out.println("In create new expense");
 		}
-		
+		return success;
 	}
 
 	public List<Expense> selectAllExpenses() {

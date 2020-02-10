@@ -10,7 +10,7 @@ public class LoginController {
 	public static String login(HttpServletRequest req) {
 		if(!req.getMethod().equals("POST")) {
 			System.out.println("returning login.change");
-			return "html/login.change";
+			return "html/login.html";
 		}
 		System.out.println("In login controller");
 		UserServiceImpl usrSvc = new UserServiceImpl();

@@ -13,7 +13,7 @@ public interface ExpenseService {
 	
 	public List<Expense> getExpensesByUserId();
 	
-	public void createExpense(Expense ex, int uId);
+	public boolean createExpense(Expense ex);
 	
 	
 }

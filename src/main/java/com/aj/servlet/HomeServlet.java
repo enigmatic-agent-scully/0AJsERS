@@ -30,7 +30,7 @@ public class HomeServlet extends HttpServlet {
 			System.out.println("hit home serlvet, admin case");
 			writeAdminHTML(res);
 		} else {
-			System.out.println("hit home servlet, employee case");
+			req.getRequestDispatcher(RequestHelper.process(req)).forward(req, res);
 		}
 	}
 
@@ -79,6 +79,16 @@ public class HomeServlet extends HttpServlet {
 					+ "VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"\r\n" 
 					+ "crossorigin=\"anonymous\"></script>\r\n" 
 					+ "</body>\r\n" + "</html>";
+			String tableHeaders = "<table border=\"2\" "
+					+ "class=\"table\" id=\"reimbtable\">\r\n" 
+					+ "<tr>\r\n" + "<th>User Id</th>\r\n" 
+					+ "<th>First Name</th>\r\n" + "<th>Last Name</th>\r\n" 
+					+ "<th>Type</th>\r\n" + "<th>Amount</th>\r\n" 
+					+ "<th>Date submitted</th>\r\n" 
+					+ "<th>Date resolved</th>\r\n" 
+					+ "<th>Status</th>\r\n" 
+					+ "<th>Description</th>\r\n" 
+					+ "<th>Ticket Id</th></tr>";
 
 			for (Expense e : exps) {
 				String typeStr = null;
@@ -110,11 +120,7 @@ public class HomeServlet extends HttpServlet {
 				}
 				System.out.println(content);
 			}
-			out.println(headHtml + openBody + "<table border=\"2\" class=\"table\" id=\"reimbtable\">\r\n" + "<tr>\r\n"
-					+ "<th>User Id</th>\r\n" + "<th>First Name</th>\r\n" + "<th>Last Name</th>\r\n"
-					+ "<th>Type</th>\r\n" + "<th>Amount</th>\r\n" + "<th>Date submitted</th>\r\n"
-					+ "<th>Date resolved</th>\r\n" + "<th>Status</th>\r\n" + "<th>Description</th>\r\n"
-					+ "<th>Ticket Id</th>\r\n" + "</tr>" + content + endWrapper);
+			out.println(headHtml + openBody + tableHeaders + content + endWrapper);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

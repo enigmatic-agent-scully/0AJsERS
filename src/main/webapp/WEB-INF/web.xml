@@ -23,5 +23,6 @@
   <servlet-mapping>
     <servlet-name>HomeServlet</servlet-name>
     <url-pattern>*.home</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>

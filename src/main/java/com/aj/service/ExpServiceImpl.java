@@ -31,8 +31,8 @@ public class ExpServiceImpl implements ExpenseService {
 	}
 
 	@Override
-	public void createExpense(Expense ex, int uId) {
-		expDao.createNewExpense(ex, uId);
+	public boolean createExpense(Expense ex) {
+		return expDao.createNewExpense(ex);
 	}
 
 }
